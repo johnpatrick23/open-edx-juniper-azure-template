@@ -1,0 +1,276 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "southeastasia"
+    },
+    "networkInterfaceName": {
+      "value": "sharlaine-vm-nic"
+    },
+    "networkSecurityGroupName": {
+      "value": "sharlaine-vm-nsg"
+    },
+    "networkSecurityGroupRules": {
+      "value": [
+        {
+          "name": "default-allow-ssh",
+          "properties": {
+            "priority": 1000,
+            "protocol": "TCP",
+            "access": "Allow",
+            "direction": "Inbound",
+            "sourceApplicationSecurityGroups": [],
+            "destinationApplicationSecurityGroups": [],
+            "sourceAddressPrefix": "*",
+            "sourcePortRange": "*",
+            "destinationAddressPrefix": "*",
+            "destinationPortRange": "22"
+          }
+        },
+        {
+          "name": "LMS",
+          "properties": {
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "80",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 310,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+          }
+        },
+        {
+          "name": "LMSSSLPort",
+          "properties": {
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "443",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 320,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+          }
+        },
+        {
+          "name": "CMS",
+          "properties": {
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "18010",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 330,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+          }
+        },
+        {
+          "name": "CMSSSLPort",
+          "properties": {
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "48010",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 340,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+          }
+        },
+        {
+          "name": "Certs",
+          "properties": {
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "18090",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 350,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+          }
+        },
+        {
+          "name": "Discovery",
+          "properties": {
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "18381",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 360,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+          }
+        },
+        {
+          "name": "Ecommerce",
+          "properties": {
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "18130",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 370,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+          }
+        },
+        {
+          "name": "edx-release",
+          "properties": {
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "8099",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 380,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+          }
+        },
+        {
+          "name": "Forum",
+          "properties": {
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "18080",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 390,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+          }
+        },
+        {
+          "name": "Xqueue",
+          "properties": {
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "18040",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "*",
+            "access": "Allow",
+            "priority": 400,
+            "direction": "Inbound",
+            "sourcePortRanges": [],
+            "destinationPortRanges": [],
+            "sourceAddressPrefixes": [],
+            "destinationAddressPrefixes": []
+          }
+        }
+      ]
+    },
+    "subnetName": {
+      "value": "default"
+    },
+    "virtualNetworkName": {
+      "value": "sharlaine-vnet"
+    },
+    "addressPrefixes": {
+      "value": [
+        "10.1.7.0/24"
+      ]
+    },
+    "subnets": {
+      "value": [
+        {
+          "name": "default",
+          "properties": {
+            "addressPrefix": "10.1.7.0/24"
+          }
+        }
+      ]
+    },
+    "publicIpAddressName": {
+      "value": "sharlaine-vm-ip"
+    },
+    "publicIpAddressType": {
+      "value": "Dynamic"
+    },
+    "publicIpAddressSku": {
+      "value": "Basic"
+    },
+    "virtualMachineName": {
+      "value": "sharlaine-vm"
+    },
+    "virtualMachineComputerName": {
+      "value": "sharlaine-vm"
+    },
+    "virtualMachineRG": {
+      "value": "CS-SEA-JUNIPER-D-RGRP"
+    },
+    "diskNameSalt": {
+      "value": "20201202170103"
+    },
+    "storageAccountName": {
+      "value": "sharlainevhdsa"
+    },
+    "storageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "storageAccountKind": {
+      "value": "Storage"
+    },
+    "virtualMachineSize": {
+      "value": "Standard_D1_v2"
+    },
+    "adminUsername": {
+      "value": "sharlaine"
+    },
+    "adminPublicKey": {
+      "value": "ssh-rsa"
+    },
+    "diagnosticsStorageAccountName": {
+      "value": "sharlainediag"
+    },
+    "diagnosticsStorageAccountId": {
+      "value": "Microsoft.Storage/storageAccounts/sharlainediag"
+    },
+    "diagnosticsStorageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "diagnosticsStorageAccountKind": {
+      "value": "Storage"
+    }
+  }
+}
